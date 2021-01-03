@@ -1,0 +1,23 @@
+{% extends "airline/layout.html"  %}
+
+{% block body %}
+
+    <h1>{{ flight.origin.code }} ({{ flight.origin.city }}) to {{ flight.destination.code }} ({{ flight.destination.city }}) duration {{ flight.duration }} minutes</h1>
+    
+    <h2>Passengers</h2>
+    <ul>
+
+        {% for passenger in passengers %}
+
+        <li>{{ passenger.first_name }} {{ passenger.last_name }}</li>
+
+        {% empty %}
+
+        <li>There are no passengers in this flight</li>
+
+        {% endfor %}
+        
+    </ul>
+
+    <a href="{% url 'models_and_migrations_example:index' %}">Back to Index</a>
+{% endblock %}
